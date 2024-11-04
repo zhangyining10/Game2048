@@ -81,25 +81,25 @@ class Board:
 
     def operation(self, direction):
         if direction == "w":
-            for j in range(4):
-                col = [self.grid[i][j] for i in range(4)]
+            for j in range(self.size):
+                col = [self.grid[i][j] for i in range(self.size)]
                 self.merge_up(col)
-                for i in range(4):
+                for i in range(self.size):
                     self.grid[i][j] = col[i]
 
         elif direction == "s":
-            for j in range(4):
-                col = [self.grid[i][j] for i in range(4)]
+            for j in range(self.size):
+                col = [self.grid[i][j] for i in range(self.size)]
                 self.merge_down(col)
-                for i in range(4):
+                for i in range(self.size):
                     self.grid[i][j] = col[i]
 
         elif direction == 'a':
-            for i in range(4):
+            for i in range(self.size):
                 self.merge_left(self.grid[i])
 
         elif direction == 'd':
-            for i in range(4):
+            for i in range(self.size):
                 self.merge_right(self.grid[i])
 
         self.add_random_title()
