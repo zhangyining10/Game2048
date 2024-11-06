@@ -1,6 +1,19 @@
 from Game import Board
 from General import display_grid, check_win, check_game_over, ask_to_play_again
 
+
+# Test Case
+# [[2,4,8,16],
+#  [4,2,16,8],
+#  [2,4,8,16],
+#  [4,2,16,8]]
+
+# [[2,4,8,16],
+#  [4,2,16,8],
+#  [2,4,8,16],
+#  [4,2,16,2048]]
+
+
 def main():
     directions = ["w", "a", "s", "d"]
     directions = set(directions)
@@ -13,7 +26,11 @@ def main():
             while True:
                 try:
                     display_grid(grid)
-                    move_direction = input("Press w (up), s (down), a (left), or d (right) to move: ").lower()
+                    move_direction = input("Press w (up), s (down), a (left), or d (right) to move, or q to quit: ").lower()
+
+                    if move_direction == "q":
+                        print("Exiting game. Goodbye!")
+                        exit()
 
                     if move_direction not in directions:
                         print("Input operation is not valid. Please choose [w, a, s, d].")
@@ -48,6 +65,7 @@ def main():
                 continue
             else:
                 exit()
+
 
 
 if __name__ == '__main__':
